@@ -20,7 +20,8 @@ def test_zero_price():
 
 def test_zero_balance_and_zero_price():
     assert can_afford(0, 0) is True
-
+#Several test cases use the same logic with different input values.
+#@pytest.mark.parametrize reduces duplicate code and improves maintainability.
 
 @pytest.mark.parametrize(
     ("balance_cents", "price_cents"),
@@ -45,3 +46,4 @@ def test_affordability_value_errors(balance_cents, price_cents):
 def test_affordability_type_errors(balance_cents, price_cents):
     with pytest.raises(TypeError):
         can_afford(balance_cents, price_cents)
+#python -m pytest --cov=.

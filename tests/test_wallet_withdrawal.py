@@ -22,7 +22,7 @@ def test_withdraw_exact_balance():
 def test_withdraw_value_errors(balance_cents, amount_cents):
     with pytest.raises(ValueError):
         withdraw(balance_cents, amount_cents)
-
+# pytest.raises is to verify that invalid inputs raise the correct exception according to the specification.
 
 @pytest.mark.parametrize(
     ("balance_cents", "amount_cents"),
